@@ -1,0 +1,1888 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DbMeChillModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FacebookVideoId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="ExpriesDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Calendar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="IsUser" Type="int" />
+        </EntityType>
+        <EntityType Name="Cast">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Avatar" Type="nvarchar" MaxLength="1000" />
+          <Property Name="AvatarThumb" Type="nvarchar" MaxLength="1000" />
+          <Property Name="AvatarId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="BirthDay" Type="datetime" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="Country" Type="nvarchar" MaxLength="200" />
+          <Property Name="SearchText" Type="nvarchar" MaxLength="500" />
+          <Property Name="Link" Type="varchar" MaxLength="50" />
+          <Property Name="SeoTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="SeoDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="LikeNumber" Type="int" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateOn" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="UpdateOn" Type="datetime" />
+          <Property Name="CdnAvatar" Type="nvarchar(max)" />
+          <Property Name="CdnAvatarThumb" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CastMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="CastId" Type="int" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Link" Type="varchar" MaxLength="50" />
+          <Property Name="DisplayOrder" Type="int" />
+          <Property Name="DisplayColumn" Type="int" />
+          <Property Name="SeoTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="SeoDescription" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="CategoryMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Link" Type="varchar" MaxLength="50" />
+          <Property Name="DisplayOrder" Type="int" />
+          <Property Name="DisplayColumn" Type="int" />
+          <Property Name="SeoTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="SeoDescription" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Episode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EpisodeNumber" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="ViewNumber" Type="int" />
+          <Property Name="CreateOn" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="UpdateOn" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Link" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Keyword" Type="nvarchar(max)" />
+          <Property Name="FullLink" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="EpisodeSource">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductEpisodeId" Type="int" />
+          <Property Name="SupplierId" Type="int" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="IsIframe" Type="bit" />
+          <Property Name="VideoId" Type="varchar" MaxLength="50" />
+          <Property Name="CreateOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdateOn" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="LinkTemp" Type="nvarchar(max)" />
+          <Property Name="ExpiryDate" Type="datetime" />
+          <Property Name="SubLink" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Files">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Filename" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="UrlLocal" Type="nvarchar(max)" />
+          <Property Name="UrlExternal" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="Size" Type="bigint" />
+          <Property Name="Extension" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Friend">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FacebookLink" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Zalo" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Avatar" Type="nvarchar" MaxLength="1000" />
+          <Property Name="GalleryImageId" Type="int" />
+        </EntityType>
+        <EntityType Name="GalleryImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Alt" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FriendId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HistoryLink">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Link" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EntityId" Type="int" Nullable="false" />
+          <Property Name="CreateAt" Type="datetime" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="UpdateAt" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="LanguageCulture" Type="varchar" MaxLength="50" />
+          <Property Name="FlagImageFileName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Currency" Type="varchar" MaxLength="50" />
+          <Property Name="Published" Type="bit" />
+          <Property Name="DisplayOrder" Type="int" />
+        </EntityType>
+        <EntityType Name="LocalizedProperty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EntityId" Type="int" Nullable="false" />
+          <Property Name="LanguageId" Type="int" Nullable="false" />
+          <Property Name="LocaleKeyGroup" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="LocaleKey" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="LocaleValue" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="1000" />
+          <Property Name="OtherName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Avatar" Type="nvarchar" MaxLength="1000" />
+          <Property Name="AvatarId" Type="int" />
+          <Property Name="Panner" Type="nvarchar" MaxLength="1000" />
+          <Property Name="PannerId" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="EpisodesTotal" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Language" Type="nvarchar" MaxLength="100" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="Director" Type="nvarchar" MaxLength="100" />
+          <Property Name="Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="Trailer" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Link" Type="varchar" MaxLength="1000" />
+          <Property Name="TypeId" Type="int" />
+          <Property Name="ShowTop" Type="bit" />
+          <Property Name="ShowCenter" Type="bit" />
+          <Property Name="IsPublish" Type="bit" />
+          <Property Name="IsNew" Type="bit" />
+          <Property Name="ShowTimes" Type="nvarchar" MaxLength="200" />
+          <Property Name="SearchText" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdateOn" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+          <Property Name="SeoTitle" Type="nvarchar" MaxLength="1000" />
+          <Property Name="SeoDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="DisplayOrder" Type="int" />
+          <Property Name="LikeNumber" Type="int" />
+          <Property Name="ViewNumber" Type="int" />
+          <Property Name="RatePoint" Type="int" />
+          <Property Name="RateNumner" Type="int" />
+          <Property Name="Keyword" Type="nvarchar(max)" />
+          <Property Name="LokLokMovie" Type="bit" />
+          <Property Name="LokLokMovieId" Type="int" />
+          <Property Name="LokLokCategoryId" Type="int" />
+          <Property Name="StatusTitle" Type="nvarchar" MaxLength="500" />
+          <Property Name="SeoKeywords" Type="nvarchar" MaxLength="500" />
+          <Property Name="CDNAvatar" Type="nvarchar(max)" />
+          <Property Name="CDNBanner" Type="nvarchar(max)" />
+          <Property Name="OriginalLink" Type="varchar" MaxLength="500" />
+          <Property Name="DMCA" Type="bit" />
+          <Property Name="Tvhay" Type="bit" />
+          <Property Name="CastString" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsRecurring" Type="bit" />
+          <Property Name="RecurringURL" Type="nvarchar" MaxLength="500" />
+          <Property Name="RecurringTime" Type="datetime" />
+          <Property Name="DaysOfWeek" Type="nvarchar" MaxLength="250" />
+          <Property Name="RecurringRepeat" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MovieRate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Point" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Ip" Type="varchar" MaxLength="50" />
+          <Property Name="CreateOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MovieView">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ViewAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MyContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="500" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsUser" Type="nvarchar" MaxLength="500" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="500" />
+          <Property Name="Avatar" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="PermissionCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryCode" Type="varchar" MaxLength="50" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Order" Type="int" />
+        </EntityType>
+        <EntityType Name="PermissionRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="SystemName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Category" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Order" Type="int" />
+          <Property Name="Url" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PermissionRecord_Mapping">
+          <Key>
+            <PropertyRef Name="PermissionRecord_Id" />
+            <PropertyRef Name="CustomerRole_Id" />
+          </Key>
+          <Property Name="PermissionRecord_Id" Type="int" Nullable="false" />
+          <Property Name="CustomerRole_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MimeType" Type="nvarchar" MaxLength="40" />
+          <Property Name="Type" Type="int" />
+          <Property Name="SeoFilename" Type="nvarchar" MaxLength="300" />
+          <Property Name="AltAttribute" Type="nvarchar(max)" />
+          <Property Name="TitleAttribute" Type="nvarchar(max)" />
+          <Property Name="VirtualPath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PictureBinary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BinaryData" Type="varbinary(max)" />
+          <Property Name="PictureId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SelectOption">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassificationCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="AttributesValue" Type="nvarchar" MaxLength="500" />
+          <Property Name="AttributesValue1" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Order" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Name="Key" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="250" />
+          <Property Name="DomainName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Noticafition" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Topic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IncludeInTopMenu" Type="bit" />
+          <Property Name="Password" Type="bit" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Body" Type="nvarchar(max)" />
+          <Property Name="Script" Type="nvarchar(max)" />
+          <Property Name="Css" Type="nvarchar(max)" />
+          <Property Name="Published" Type="bit" Nullable="false" />
+          <Property Name="MetaKeywords" Type="nvarchar(max)" />
+          <Property Name="MetaDescription" Type="nvarchar(max)" />
+          <Property Name="MetaTitle" Type="nvarchar(max)" />
+          <Property Name="Order" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="UrlRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EntityId" Type="int" Nullable="false" />
+          <Property Name="EntityName" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="Slug" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="LanguageId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Name" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Email" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Gender" Type="bit" />
+          <Property Name="Money" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TotalMoney" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Company" Type="nvarchar" MaxLength="1000" />
+          <Property Name="TaxNumber" Type="nvarchar" MaxLength="1000" />
+          <Property Name="LastIp" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsSystemAccount" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="CannotLoginUntilDate" Type="datetime" />
+          <Property Name="Password" Type="nvarchar" MaxLength="1000" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="RoleId" Type="varchar" MaxLength="500" />
+          <Property Name="Avatar" Type="nvarchar" MaxLength="1000" />
+          <Property Name="TokenLogin" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_Movie_CastMapping_Movie_Cast">
+          <End Role="Cast" Type="Self.Cast" Multiplicity="0..1" />
+          <End Role="CastMapping" Type="Self.CastMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cast">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CastMapping">
+              <PropertyRef Name="CastId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_CastMapping_Movie_Product">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+          <End Role="CastMapping" Type="Self.CastMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CastMapping">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_CategoryProductMapping_Movie_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="CategoryMapping" Type="Self.CategoryMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CategoryMapping">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_CategoryProductMapping_Movie_Product">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+          <End Role="CategoryMapping" Type="Self.CategoryMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CategoryMapping">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_Product_Movie_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_ProductEpisode_Movie_Product">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="1" />
+          <End Role="Episode" Type="Self.Episode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Episode">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_ProductRate_Movie_Product">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="1" />
+          <End Role="MovieRate" Type="Self.MovieRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovieRate">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_ProductSource_Movie_ProductEpisode">
+          <End Role="Episode" Type="Self.Episode" Multiplicity="0..1" />
+          <End Role="EpisodeSource" Type="Self.EpisodeSource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Episode">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EpisodeSource">
+              <PropertyRef Name="ProductEpisodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_ViewProduct_Movie_Product">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+          <End Role="MovieView" Type="Self.MovieView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovieView">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermissionRecord_Mapping_PermissionRecord">
+          <End Role="PermissionRecord" Type="Self.PermissionRecord" Multiplicity="1" />
+          <End Role="PermissionRecord_Mapping" Type="Self.PermissionRecord_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PermissionRecord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PermissionRecord_Mapping">
+              <PropertyRef Name="PermissionRecord_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermissionRecord_Mapping_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="PermissionRecord_Mapping" Type="Self.PermissionRecord_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PermissionRecord_Mapping">
+              <PropertyRef Name="CustomerRole_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PictureBinary_Picture">
+          <End Role="Picture" Type="Self.Picture" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PictureBinary" Type="Self.PictureBinary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Picture">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PictureBinary">
+              <PropertyRef Name="PictureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbMeChillModelStoreContainer">
+          <EntitySet Name="Ads" EntityType="Self.Ads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Calendar" EntityType="Self.Calendar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cast" EntityType="Self.Cast" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CastMapping" EntityType="Self.CastMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryMapping" EntityType="Self.CategoryMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Episode" EntityType="Self.Episode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EpisodeSource" EntityType="Self.EpisodeSource" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Files" EntityType="Self.Files" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Friend" EntityType="Self.Friend" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GalleryImage" EntityType="Self.GalleryImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistoryLink" EntityType="Self.HistoryLink" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocalizedProperty" EntityType="Self.LocalizedProperty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovieRate" EntityType="Self.MovieRate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovieView" EntityType="Self.MovieView" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MyContact" EntityType="Self.MyContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermissionCategory" EntityType="Self.PermissionCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermissionRecord" EntityType="Self.PermissionRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermissionRecord_Mapping" EntityType="Self.PermissionRecord_Mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PictureBinary" EntityType="Self.PictureBinary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SelectOption" EntityType="Self.SelectOption" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Store" EntityType="Self.Store" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Topic" EntityType="Self.Topic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UrlRecord" EntityType="Self.UrlRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Movie_CastMapping_Movie_Cast" Association="Self.FK_Movie_CastMapping_Movie_Cast">
+            <End Role="Cast" EntitySet="Cast" />
+            <End Role="CastMapping" EntitySet="CastMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_CastMapping_Movie_Product" Association="Self.FK_Movie_CastMapping_Movie_Product">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="CastMapping" EntitySet="CastMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_CategoryProductMapping_Movie_Category" Association="Self.FK_Movie_CategoryProductMapping_Movie_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="CategoryMapping" EntitySet="CategoryMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_CategoryProductMapping_Movie_Product" Association="Self.FK_Movie_CategoryProductMapping_Movie_Product">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="CategoryMapping" EntitySet="CategoryMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_Product_Movie_Country" Association="Self.FK_Movie_Product_Movie_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_ProductEpisode_Movie_Product" Association="Self.FK_Movie_ProductEpisode_Movie_Product">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="Episode" EntitySet="Episode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_ProductRate_Movie_Product" Association="Self.FK_Movie_ProductRate_Movie_Product">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="MovieRate" EntitySet="MovieRate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_ProductSource_Movie_ProductEpisode" Association="Self.FK_Movie_ProductSource_Movie_ProductEpisode">
+            <End Role="Episode" EntitySet="Episode" />
+            <End Role="EpisodeSource" EntitySet="EpisodeSource" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_ViewProduct_Movie_Product" Association="Self.FK_Movie_ViewProduct_Movie_Product">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="MovieView" EntitySet="MovieView" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermissionRecord_Mapping_PermissionRecord" Association="Self.FK_PermissionRecord_Mapping_PermissionRecord">
+            <End Role="PermissionRecord" EntitySet="PermissionRecord" />
+            <End Role="PermissionRecord_Mapping" EntitySet="PermissionRecord_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermissionRecord_Mapping_Role" Association="Self.FK_PermissionRecord_Mapping_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="PermissionRecord_Mapping" EntitySet="PermissionRecord_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PictureBinary_Picture" Association="Self.FK_PictureBinary_Picture">
+            <End Role="Picture" EntitySet="Picture" />
+            <End Role="PictureBinary" EntitySet="PictureBinary" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbMeChillModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FacebookVideoId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExpriesDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Calendar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="IsUser" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Cast">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Avatar" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="AvatarThumb" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="AvatarId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDay" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SearchText" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SeoTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SeoDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LikeNumber" Type="Int32" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="CreateOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="UpdateOn" Type="DateTime" Precision="3" />
+          <Property Name="CdnAvatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CdnAvatarThumb" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CastMappings" Relationship="Self.FK_Movie_CastMapping_Movie_Cast" FromRole="Cast" ToRole="CastMapping" />
+        </EntityType>
+        <EntityType Name="CastMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="CastId" Type="Int32" />
+          <NavigationProperty Name="Cast" Relationship="Self.FK_Movie_CastMapping_Movie_Cast" FromRole="CastMapping" ToRole="Cast" />
+          <NavigationProperty Name="Movie" Relationship="Self.FK_Movie_CastMapping_Movie_Product" FromRole="CastMapping" ToRole="Movie" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DisplayOrder" Type="Int32" />
+          <Property Name="DisplayColumn" Type="Int32" />
+          <Property Name="SeoTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SeoDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CategoryMappings" Relationship="Self.FK_Movie_CategoryProductMapping_Movie_Category" FromRole="Category" ToRole="CategoryMapping" />
+        </EntityType>
+        <EntityType Name="CategoryMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Movie_CategoryProductMapping_Movie_Category" FromRole="CategoryMapping" ToRole="Category" />
+          <NavigationProperty Name="Movie" Relationship="Self.FK_Movie_CategoryProductMapping_Movie_Product" FromRole="CategoryMapping" ToRole="Movie" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DisplayOrder" Type="Int32" />
+          <Property Name="DisplayColumn" Type="Int32" />
+          <Property Name="SeoTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SeoDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Movies" Relationship="Self.FK_Movie_Product_Movie_Country" FromRole="Country" ToRole="Movie" />
+        </EntityType>
+        <EntityType Name="Episode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EpisodeNumber" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="ViewNumber" Type="Int32" />
+          <Property Name="CreateOn" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="UpdateOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Keyword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FullLink" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Movie" Relationship="Self.FK_Movie_ProductEpisode_Movie_Product" FromRole="Episode" ToRole="Movie" />
+          <NavigationProperty Name="EpisodeSources" Relationship="Self.FK_Movie_ProductSource_Movie_ProductEpisode" FromRole="Episode" ToRole="EpisodeSource" />
+        </EntityType>
+        <EntityType Name="EpisodeSource">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductEpisodeId" Type="Int32" />
+          <Property Name="SupplierId" Type="Int32" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsIframe" Type="Boolean" />
+          <Property Name="VideoId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdateOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="LinkTemp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+          <Property Name="SubLink" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Episode" Relationship="Self.FK_Movie_ProductSource_Movie_ProductEpisode" FromRole="EpisodeSource" ToRole="Episode" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Filename" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UrlLocal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UrlExternal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="Int64" />
+          <Property Name="Extension" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Friend">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FacebookLink" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Zalo" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Avatar" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="GalleryImageId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="GalleryImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Alt" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FriendId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HistoryLink">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Link" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EntityId" Type="Int32" Nullable="false" />
+          <Property Name="CreateAt" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="UpdateAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LanguageCulture" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FlagImageFileName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Published" Type="Boolean" />
+          <Property Name="DisplayOrder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="LocalizedProperty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EntityId" Type="Int32" Nullable="false" />
+          <Property Name="LanguageId" Type="Int32" Nullable="false" />
+          <Property Name="LocaleKeyGroup" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LocaleKey" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LocaleValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="OtherName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Avatar" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="AvatarId" Type="Int32" />
+          <Property Name="Panner" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="PannerId" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EpisodesTotal" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Language" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" />
+          <Property Name="Director" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Trailer" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="TypeId" Type="Int32" />
+          <Property Name="ShowTop" Type="Boolean" />
+          <Property Name="ShowCenter" Type="Boolean" />
+          <Property Name="IsPublish" Type="Boolean" />
+          <Property Name="IsNew" Type="Boolean" />
+          <Property Name="ShowTimes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SearchText" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdateOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+          <Property Name="SeoTitle" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="SeoDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayOrder" Type="Int32" />
+          <Property Name="LikeNumber" Type="Int32" />
+          <Property Name="ViewNumber" Type="Int32" />
+          <Property Name="RatePoint" Type="Int32" />
+          <Property Name="RateNumner" Type="Int32" />
+          <Property Name="Keyword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LokLokMovie" Type="Boolean" />
+          <Property Name="LokLokMovieId" Type="Int32" />
+          <Property Name="LokLokCategoryId" Type="Int32" />
+          <Property Name="StatusTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SeoKeywords" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CDNAvatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CDNBanner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OriginalLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DMCA" Type="Boolean" />
+          <Property Name="Tvhay" Type="Boolean" />
+          <Property Name="CastString" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsRecurring" Type="Boolean" />
+          <Property Name="RecurringURL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="RecurringTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CastMappings" Relationship="Self.FK_Movie_CastMapping_Movie_Product" FromRole="Movie" ToRole="CastMapping" />
+          <NavigationProperty Name="CategoryMappings" Relationship="Self.FK_Movie_CategoryProductMapping_Movie_Product" FromRole="Movie" ToRole="CategoryMapping" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_Movie_Product_Movie_Country" FromRole="Movie" ToRole="Country" />
+          <NavigationProperty Name="Episodes" Relationship="Self.FK_Movie_ProductEpisode_Movie_Product" FromRole="Movie" ToRole="Episode" />
+          <NavigationProperty Name="MovieRates" Relationship="Self.FK_Movie_ProductRate_Movie_Product" FromRole="Movie" ToRole="MovieRate" />
+          <NavigationProperty Name="MovieViews" Relationship="Self.FK_Movie_ViewProduct_Movie_Product" FromRole="Movie" ToRole="MovieView" />
+          <Property Name="RecurringRepeat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DaysOfWeek" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MovieRate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Point" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Movie" Relationship="Self.FK_Movie_ProductRate_Movie_Product" FromRole="MovieRate" ToRole="Movie" />
+        </EntityType>
+        <EntityType Name="MovieView">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ViewAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Movie" Relationship="Self.FK_Movie_ViewProduct_Movie_Product" FromRole="MovieView" ToRole="Movie" />
+        </EntityType>
+        <EntityType Name="MyContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsUser" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Facebook" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Avatar" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PermissionCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Order" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PermissionRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SystemName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Order" Type="Int32" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Roles" Relationship="Self.PermissionRecord_Mapping" FromRole="PermissionRecord" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MimeType" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="SeoFilename" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="AltAttribute" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TitleAttribute" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VirtualPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PictureBinaries" Relationship="Self.FK_PictureBinary_Picture" FromRole="Picture" ToRole="PictureBinary" />
+        </EntityType>
+        <EntityType Name="PictureBinary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BinaryData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PictureId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Picture" Relationship="Self.FK_PictureBinary_Picture" FromRole="PictureBinary" ToRole="Picture" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PermissionRecords" Relationship="Self.PermissionRecord_Mapping" FromRole="Role" ToRole="PermissionRecord" />
+        </EntityType>
+        <EntityType Name="SelectOption">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassificationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AttributesValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AttributesValue1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Order" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Name="Key" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DomainName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Noticafition" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Topic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IncludeInTopMenu" Type="Boolean" />
+          <Property Name="Password" Type="Boolean" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Script" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Css" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Published" Type="Boolean" Nullable="false" />
+          <Property Name="MetaKeywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MetaDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MetaTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Order" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UrlRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EntityId" Type="Int32" Nullable="false" />
+          <Property Name="EntityName" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Slug" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="LanguageId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Boolean" />
+          <Property Name="Money" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TotalMoney" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="TaxNumber" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="LastIp" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsSystemAccount" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="CannotLoginUntilDate" Type="DateTime" Precision="3" />
+          <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="RoleId" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Avatar" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="TokenLogin" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Movie_CastMapping_Movie_Cast">
+          <End Role="Cast" Type="Self.Cast" Multiplicity="0..1" />
+          <End Role="CastMapping" Type="Self.CastMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cast">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CastMapping">
+              <PropertyRef Name="CastId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_CastMapping_Movie_Product">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+          <End Role="CastMapping" Type="Self.CastMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CastMapping">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_CategoryProductMapping_Movie_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="CategoryMapping" Type="Self.CategoryMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CategoryMapping">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_CategoryProductMapping_Movie_Product">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+          <End Role="CategoryMapping" Type="Self.CategoryMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CategoryMapping">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_Product_Movie_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_ProductEpisode_Movie_Product">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="1" />
+          <End Role="Episode" Type="Self.Episode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Episode">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_ProductSource_Movie_ProductEpisode">
+          <End Role="Episode" Type="Self.Episode" Multiplicity="0..1" />
+          <End Role="EpisodeSource" Type="Self.EpisodeSource" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Episode">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EpisodeSource">
+              <PropertyRef Name="ProductEpisodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_ProductRate_Movie_Product">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="1" />
+          <End Role="MovieRate" Type="Self.MovieRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovieRate">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_ViewProduct_Movie_Product">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+          <End Role="MovieView" Type="Self.MovieView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovieView">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PictureBinary_Picture">
+          <End Role="Picture" Type="Self.Picture" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PictureBinary" Type="Self.PictureBinary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Picture">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PictureBinary">
+              <PropertyRef Name="PictureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PermissionRecord_Mapping">
+          <End Role="PermissionRecord" Type="Self.PermissionRecord" Multiplicity="*" />
+          <End Role="Role" Type="Self.Role" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DbMeChillEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ads" EntityType="Self.Ad" />
+          <EntitySet Name="Calendars" EntityType="Self.Calendar" />
+          <EntitySet Name="Casts" EntityType="Self.Cast" />
+          <EntitySet Name="CastMappings" EntityType="Self.CastMapping" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="CategoryMappings" EntityType="Self.CategoryMapping" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="Episodes" EntityType="Self.Episode" />
+          <EntitySet Name="EpisodeSources" EntityType="Self.EpisodeSource" />
+          <EntitySet Name="Files" EntityType="Self.File" />
+          <EntitySet Name="Friends" EntityType="Self.Friend" />
+          <EntitySet Name="GalleryImages" EntityType="Self.GalleryImage" />
+          <EntitySet Name="HistoryLinks" EntityType="Self.HistoryLink" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+          <EntitySet Name="LocalizedProperties" EntityType="Self.LocalizedProperty" />
+          <EntitySet Name="Movies" EntityType="Self.Movie" />
+          <EntitySet Name="MovieRates" EntityType="Self.MovieRate" />
+          <EntitySet Name="MovieViews" EntityType="Self.MovieView" />
+          <EntitySet Name="MyContacts" EntityType="Self.MyContact" />
+          <EntitySet Name="PermissionCategories" EntityType="Self.PermissionCategory" />
+          <EntitySet Name="PermissionRecords" EntityType="Self.PermissionRecord" />
+          <EntitySet Name="Pictures" EntityType="Self.Picture" />
+          <EntitySet Name="PictureBinaries" EntityType="Self.PictureBinary" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="SelectOptions" EntityType="Self.SelectOption" />
+          <EntitySet Name="Settings" EntityType="Self.Setting" />
+          <EntitySet Name="Stores" EntityType="Self.Store" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Topics" EntityType="Self.Topic" />
+          <EntitySet Name="UrlRecords" EntityType="Self.UrlRecord" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Movie_CastMapping_Movie_Cast" Association="Self.FK_Movie_CastMapping_Movie_Cast">
+            <End Role="Cast" EntitySet="Casts" />
+            <End Role="CastMapping" EntitySet="CastMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_CastMapping_Movie_Product" Association="Self.FK_Movie_CastMapping_Movie_Product">
+            <End Role="Movie" EntitySet="Movies" />
+            <End Role="CastMapping" EntitySet="CastMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_CategoryProductMapping_Movie_Category" Association="Self.FK_Movie_CategoryProductMapping_Movie_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="CategoryMapping" EntitySet="CategoryMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_CategoryProductMapping_Movie_Product" Association="Self.FK_Movie_CategoryProductMapping_Movie_Product">
+            <End Role="Movie" EntitySet="Movies" />
+            <End Role="CategoryMapping" EntitySet="CategoryMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_Product_Movie_Country" Association="Self.FK_Movie_Product_Movie_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Movie" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_ProductEpisode_Movie_Product" Association="Self.FK_Movie_ProductEpisode_Movie_Product">
+            <End Role="Movie" EntitySet="Movies" />
+            <End Role="Episode" EntitySet="Episodes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_ProductSource_Movie_ProductEpisode" Association="Self.FK_Movie_ProductSource_Movie_ProductEpisode">
+            <End Role="Episode" EntitySet="Episodes" />
+            <End Role="EpisodeSource" EntitySet="EpisodeSources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_ProductRate_Movie_Product" Association="Self.FK_Movie_ProductRate_Movie_Product">
+            <End Role="Movie" EntitySet="Movies" />
+            <End Role="MovieRate" EntitySet="MovieRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movie_ViewProduct_Movie_Product" Association="Self.FK_Movie_ViewProduct_Movie_Product">
+            <End Role="Movie" EntitySet="Movies" />
+            <End Role="MovieView" EntitySet="MovieViews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PictureBinary_Picture" Association="Self.FK_PictureBinary_Picture">
+            <End Role="Picture" EntitySet="Pictures" />
+            <End Role="PictureBinary" EntitySet="PictureBinaries" />
+          </AssociationSet>
+          <AssociationSet Name="PermissionRecord_Mapping" Association="Self.PermissionRecord_Mapping">
+            <End Role="PermissionRecord" EntitySet="PermissionRecords" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbMeChillModelStoreContainer" CdmEntityContainer="DbMeChillEntities">
+          <EntitySetMapping Name="Ads">
+            <EntityTypeMapping TypeName="DbMeChillModel.Ad">
+              <MappingFragment StoreEntitySet="Ads">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FacebookVideoId" ColumnName="FacebookVideoId" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="ExpriesDate" ColumnName="ExpriesDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Calendars">
+            <EntityTypeMapping TypeName="DbMeChillModel.Calendar">
+              <MappingFragment StoreEntitySet="Calendar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Casts">
+            <EntityTypeMapping TypeName="DbMeChillModel.Cast">
+              <MappingFragment StoreEntitySet="Cast">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="AvatarThumb" ColumnName="AvatarThumb" />
+                <ScalarProperty Name="AvatarId" ColumnName="AvatarId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="SearchText" ColumnName="SearchText" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="SeoTitle" ColumnName="SeoTitle" />
+                <ScalarProperty Name="SeoDescription" ColumnName="SeoDescription" />
+                <ScalarProperty Name="LikeNumber" ColumnName="LikeNumber" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateOn" ColumnName="CreateOn" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="UpdateOn" ColumnName="UpdateOn" />
+                <ScalarProperty Name="CdnAvatar" ColumnName="CdnAvatar" />
+                <ScalarProperty Name="CdnAvatarThumb" ColumnName="CdnAvatarThumb" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CastMappings">
+            <EntityTypeMapping TypeName="DbMeChillModel.CastMapping">
+              <MappingFragment StoreEntitySet="CastMapping">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="CastId" ColumnName="CastId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="DbMeChillModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="DisplayColumn" ColumnName="DisplayColumn" />
+                <ScalarProperty Name="SeoTitle" ColumnName="SeoTitle" />
+                <ScalarProperty Name="SeoDescription" ColumnName="SeoDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryMappings">
+            <EntityTypeMapping TypeName="DbMeChillModel.CategoryMapping">
+              <MappingFragment StoreEntitySet="CategoryMapping">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="DbMeChillModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="DbMeChillModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="DisplayColumn" ColumnName="DisplayColumn" />
+                <ScalarProperty Name="SeoTitle" ColumnName="SeoTitle" />
+                <ScalarProperty Name="SeoDescription" ColumnName="SeoDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Episodes">
+            <EntityTypeMapping TypeName="DbMeChillModel.Episode">
+              <MappingFragment StoreEntitySet="Episode">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EpisodeNumber" ColumnName="EpisodeNumber" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ViewNumber" ColumnName="ViewNumber" />
+                <ScalarProperty Name="CreateOn" ColumnName="CreateOn" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateOn" ColumnName="UpdateOn" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="FullLink" ColumnName="FullLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EpisodeSources">
+            <EntityTypeMapping TypeName="DbMeChillModel.EpisodeSource">
+              <MappingFragment StoreEntitySet="EpisodeSource">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductEpisodeId" ColumnName="ProductEpisodeId" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="IsIframe" ColumnName="IsIframe" />
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="CreateOn" ColumnName="CreateOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateOn" ColumnName="UpdateOn" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="LinkTemp" ColumnName="LinkTemp" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="SubLink" ColumnName="SubLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Files">
+            <EntityTypeMapping TypeName="DbMeChillModel.File">
+              <MappingFragment StoreEntitySet="Files">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+                <ScalarProperty Name="UrlLocal" ColumnName="UrlLocal" />
+                <ScalarProperty Name="UrlExternal" ColumnName="UrlExternal" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Friends">
+            <EntityTypeMapping TypeName="DbMeChillModel.Friend">
+              <MappingFragment StoreEntitySet="Friend">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="FacebookLink" ColumnName="FacebookLink" />
+                <ScalarProperty Name="Zalo" ColumnName="Zalo" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="GalleryImageId" ColumnName="GalleryImageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GalleryImages">
+            <EntityTypeMapping TypeName="DbMeChillModel.GalleryImage">
+              <MappingFragment StoreEntitySet="GalleryImage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Alt" ColumnName="Alt" />
+                <ScalarProperty Name="FriendId" ColumnName="FriendId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistoryLinks">
+            <EntityTypeMapping TypeName="DbMeChillModel.HistoryLink">
+              <MappingFragment StoreEntitySet="HistoryLink">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="DbMeChillModel.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LanguageCulture" ColumnName="LanguageCulture" />
+                <ScalarProperty Name="FlagImageFileName" ColumnName="FlagImageFileName" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Published" ColumnName="Published" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocalizedProperties">
+            <EntityTypeMapping TypeName="DbMeChillModel.LocalizedProperty">
+              <MappingFragment StoreEntitySet="LocalizedProperty">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="LocaleKeyGroup" ColumnName="LocaleKeyGroup" />
+                <ScalarProperty Name="LocaleKey" ColumnName="LocaleKey" />
+                <ScalarProperty Name="LocaleValue" ColumnName="LocaleValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movies">
+            <EntityTypeMapping TypeName="DbMeChillModel.Movie">
+              <MappingFragment StoreEntitySet="Movie">
+                <ScalarProperty Name="DaysOfWeek" ColumnName="DaysOfWeek" />
+                <ScalarProperty Name="RecurringRepeat" ColumnName="RecurringRepeat" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="OtherName" ColumnName="OtherName" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="AvatarId" ColumnName="AvatarId" />
+                <ScalarProperty Name="Panner" ColumnName="Panner" />
+                <ScalarProperty Name="PannerId" ColumnName="PannerId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EpisodesTotal" ColumnName="EpisodesTotal" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Trailer" ColumnName="Trailer" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="ShowTop" ColumnName="ShowTop" />
+                <ScalarProperty Name="ShowCenter" ColumnName="ShowCenter" />
+                <ScalarProperty Name="IsPublish" ColumnName="IsPublish" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="ShowTimes" ColumnName="ShowTimes" />
+                <ScalarProperty Name="SearchText" ColumnName="SearchText" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateOn" ColumnName="UpdateOn" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="SeoTitle" ColumnName="SeoTitle" />
+                <ScalarProperty Name="SeoDescription" ColumnName="SeoDescription" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="LikeNumber" ColumnName="LikeNumber" />
+                <ScalarProperty Name="ViewNumber" ColumnName="ViewNumber" />
+                <ScalarProperty Name="RatePoint" ColumnName="RatePoint" />
+                <ScalarProperty Name="RateNumner" ColumnName="RateNumner" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="LokLokMovie" ColumnName="LokLokMovie" />
+                <ScalarProperty Name="LokLokMovieId" ColumnName="LokLokMovieId" />
+                <ScalarProperty Name="LokLokCategoryId" ColumnName="LokLokCategoryId" />
+                <ScalarProperty Name="StatusTitle" ColumnName="StatusTitle" />
+                <ScalarProperty Name="SeoKeywords" ColumnName="SeoKeywords" />
+                <ScalarProperty Name="CDNAvatar" ColumnName="CDNAvatar" />
+                <ScalarProperty Name="CDNBanner" ColumnName="CDNBanner" />
+                <ScalarProperty Name="OriginalLink" ColumnName="OriginalLink" />
+                <ScalarProperty Name="DMCA" ColumnName="DMCA" />
+                <ScalarProperty Name="Tvhay" ColumnName="Tvhay" />
+                <ScalarProperty Name="CastString" ColumnName="CastString" />
+                <ScalarProperty Name="IsRecurring" ColumnName="IsRecurring" />
+                <ScalarProperty Name="RecurringURL" ColumnName="RecurringURL" />
+                <ScalarProperty Name="RecurringTime" ColumnName="RecurringTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovieRates">
+            <EntityTypeMapping TypeName="DbMeChillModel.MovieRate">
+              <MappingFragment StoreEntitySet="MovieRate">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Point" ColumnName="Point" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="CreateOn" ColumnName="CreateOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovieViews">
+            <EntityTypeMapping TypeName="DbMeChillModel.MovieView">
+              <MappingFragment StoreEntitySet="MovieView">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ViewAt" ColumnName="ViewAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MyContacts">
+            <EntityTypeMapping TypeName="DbMeChillModel.MyContact">
+              <MappingFragment StoreEntitySet="MyContact">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermissionCategories">
+            <EntityTypeMapping TypeName="DbMeChillModel.PermissionCategory">
+              <MappingFragment StoreEntitySet="PermissionCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermissionRecords">
+            <EntityTypeMapping TypeName="DbMeChillModel.PermissionRecord">
+              <MappingFragment StoreEntitySet="PermissionRecord">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pictures">
+            <EntityTypeMapping TypeName="DbMeChillModel.Picture">
+              <MappingFragment StoreEntitySet="Picture">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MimeType" ColumnName="MimeType" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="SeoFilename" ColumnName="SeoFilename" />
+                <ScalarProperty Name="AltAttribute" ColumnName="AltAttribute" />
+                <ScalarProperty Name="TitleAttribute" ColumnName="TitleAttribute" />
+                <ScalarProperty Name="VirtualPath" ColumnName="VirtualPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PictureBinaries">
+            <EntityTypeMapping TypeName="DbMeChillModel.PictureBinary">
+              <MappingFragment StoreEntitySet="PictureBinary">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BinaryData" ColumnName="BinaryData" />
+                <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="DbMeChillModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SelectOptions">
+            <EntityTypeMapping TypeName="DbMeChillModel.SelectOption">
+              <MappingFragment StoreEntitySet="SelectOption">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClassificationCode" ColumnName="ClassificationCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AttributesValue" ColumnName="AttributesValue" />
+                <ScalarProperty Name="AttributesValue1" ColumnName="AttributesValue1" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="DbMeChillModel.Setting">
+              <MappingFragment StoreEntitySet="Settings">
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stores">
+            <EntityTypeMapping TypeName="DbMeChillModel.Store">
+              <MappingFragment StoreEntitySet="Store">
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+                <ScalarProperty Name="Noticafition" ColumnName="Noticafition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DbMeChillModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Topics">
+            <EntityTypeMapping TypeName="DbMeChillModel.Topic">
+              <MappingFragment StoreEntitySet="Topic">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IncludeInTopMenu" ColumnName="IncludeInTopMenu" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Script" ColumnName="Script" />
+                <ScalarProperty Name="Css" ColumnName="Css" />
+                <ScalarProperty Name="Published" ColumnName="Published" />
+                <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+                <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+                <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UrlRecords">
+            <EntityTypeMapping TypeName="DbMeChillModel.UrlRecord">
+              <MappingFragment StoreEntitySet="UrlRecord">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DbMeChillModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Money" ColumnName="Money" />
+                <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="TaxNumber" ColumnName="TaxNumber" />
+                <ScalarProperty Name="LastIp" ColumnName="LastIp" />
+                <ScalarProperty Name="IsSystemAccount" ColumnName="IsSystemAccount" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CannotLoginUntilDate" ColumnName="CannotLoginUntilDate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="TokenLogin" ColumnName="TokenLogin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PermissionRecord_Mapping" TypeName="DbMeChillModel.PermissionRecord_Mapping" StoreEntitySet="PermissionRecord_Mapping">
+            <EndProperty Name="PermissionRecord">
+              <ScalarProperty Name="Id" ColumnName="PermissionRecord_Id" />
+            </EndProperty>
+            <EndProperty Name="Role">
+              <ScalarProperty Name="Id" ColumnName="CustomerRole_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

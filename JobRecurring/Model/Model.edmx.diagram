@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d4577f063e6940d6adc221c6dcc39d5e" Name="Diagram1" ZoomLevel="90">
+        <EntityTypeShape EntityType="DbMeChillModel.Ad" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.Calendar" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.Cast" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.CastMapping" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.Category" Width="1.5" PointX="6" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.CategoryMapping" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.Company" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.Country" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.Episode" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.EpisodeSource" Width="1.5" PointX="7.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.File" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.Friend" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.GalleryImage" Width="1.5" PointX="12.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.HistoryLink" Width="1.5" PointX="13.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.Language" Width="1.5" PointX="7.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.LocalizedProperty" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.Movie" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.MovieRate" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.MovieView" Width="1.5" PointX="5.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.MyContact" Width="1.5" PointX="9.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.PermissionCategory" Width="1.5" PointX="11.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.PermissionRecord" Width="1.5" PointX="8.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.Picture" Width="1.5" PointX="10.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.PictureBinary" Width="1.5" PointX="13" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.Role" Width="1.5" PointX="11" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.SelectOption" Width="1.5" PointX="13.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.Setting" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.Store" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.sysdiagram" Width="1.5" PointX="15.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.Topic" Width="1.5" PointX="15.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.UrlRecord" Width="1.5" PointX="15.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMeChillModel.User" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DbMeChillModel.FK_Movie_CastMapping_Movie_Cast" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMeChillModel.FK_Movie_CastMapping_Movie_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMeChillModel.FK_Movie_CategoryProductMapping_Movie_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMeChillModel.FK_Movie_CategoryProductMapping_Movie_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMeChillModel.FK_Movie_Product_Movie_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMeChillModel.FK_Movie_ProductEpisode_Movie_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMeChillModel.FK_Movie_ProductSource_Movie_ProductEpisode" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMeChillModel.FK_Movie_ProductRate_Movie_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMeChillModel.FK_Movie_ViewProduct_Movie_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMeChillModel.FK_PictureBinary_Picture" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMeChillModel.PermissionRecord_Mapping" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
